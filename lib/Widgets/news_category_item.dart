@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/Models/news_categories_model.dart';
+import 'package:news/views/category_view.dart';
 
 class NewsCategoryItem extends StatelessWidget {
   const NewsCategoryItem({super.key, required this.newsCategories});
@@ -7,17 +8,30 @@ class NewsCategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Image.asset(
-          newsCategories.image,
-        ),
-        Text(
-          newsCategories.text,
-          style: TextStyle(fontSize: 30, color: Colors.white),
-        ),
-      ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) {
+              return CategoryView(
+                category: newsCategories.text,
+              );
+            },
+          ),
+        );
+      },
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Image.asset(
+            newsCategories.image,
+          ),
+          Text(
+            newsCategories.text,
+            style: TextStyle(fontSize: 30, color: Colors.white),
+          ),
+        ],
+      ),
     );
   }
 }

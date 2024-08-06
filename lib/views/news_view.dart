@@ -1,11 +1,14 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:news/Models/news_categories_model.dart';
-import 'package:news/Models/news_model.dart';
+import 'package:news/Models/article_model.dart';
 import 'package:news/Widgets/categories_list_view.dart';
 import 'package:news/Widgets/news_category_item.dart';
 import 'package:news/Widgets/news_item.dart';
 
 import '../Widgets/news_tile.dart';
+import '../Widgets/news_tile_builder.dart';
+import '../services/news_service.dart';
 
 class NewsView extends StatelessWidget {
   NewsView({super.key});
@@ -39,32 +42,7 @@ class NewsView extends StatelessWidget {
           NewsCategoriesModel('assets/images/general.avif', "General"),
     ),
   ];
-  List<NewsItem> newsItem = [
-    NewsItem(
-      newsModel: NewsModel('assets/images/technology.jpeg',
-          "asdasdasdsadasdasdassadsad", "asdsadsadasdasdsa"),
-    ),
-    NewsItem(
-      newsModel: NewsModel('assets/images/technology.jpeg',
-          "asdasdsadsadsadsaasdsad", "asdasdasdasdasdsadsadsadasd"),
-    ),
-    NewsItem(
-      newsModel: NewsModel('assets/images/technology.jpeg',
-          "asdasdsadsadsadsaasdsad", "asdasdasdasdasdsadsadsadasd"),
-    ),
-    NewsItem(
-      newsModel: NewsModel('assets/images/technology.jpeg',
-          "asdasdsadsadsadsaasdsad", "asdasdasdasdasdsadsadsadasd"),
-    ),
-    NewsItem(
-      newsModel: NewsModel('assets/images/technology.jpeg',
-          "asdasdsadsadsadsaasdsad", "asdasdasdasdasdsadsadsadasd"),
-    ),
-    NewsItem(
-      newsModel: NewsModel('assets/images/technology.jpeg',
-          "asdasdsadsadsadsaasdsad", "asdasdasdasdasdsadsadsadasd"),
-    ),
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,7 +80,9 @@ class NewsView extends StatelessWidget {
                 height: 32,
               ),
             ),
-            NewsTile(newsItem: newsItem)
+            NewsTileBuilder(
+              category: 'general',
+            )
           ],
         ),
       ),
