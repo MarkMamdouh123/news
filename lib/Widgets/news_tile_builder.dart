@@ -9,7 +9,7 @@ class NewsTileBuilder extends StatefulWidget {
   @override
   State<NewsTileBuilder> createState() => _NewsTileBuilderState();
   final String category;
-  NewsTileBuilder({required this.category});
+  const NewsTileBuilder({super.key, required this.category});
 }
 
 class _NewsTileBuilderState extends State<NewsTileBuilder> {
@@ -30,9 +30,10 @@ class _NewsTileBuilderState extends State<NewsTileBuilder> {
         if (snapShot.hasData) {
           return NewsTile(articles: snapShot.data ?? []);
         } else if (snapShot.hasError) {
-          return SliverFillRemaining(child: Text("Oops there is an error"));
+          return const SliverFillRemaining(
+              child: Text("Oops there is an error"));
         } else {
-          return SliverFillRemaining(
+          return const SliverFillRemaining(
             child: Center(
               child: CircularProgressIndicator(),
             ),

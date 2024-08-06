@@ -1,17 +1,11 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:news/Models/news_categories_model.dart';
-import 'package:news/Models/article_model.dart';
 import 'package:news/Widgets/categories_list_view.dart';
 import 'package:news/Widgets/news_category_item.dart';
-import 'package:news/Widgets/news_item.dart';
 
-import '../Widgets/news_tile.dart';
 import '../Widgets/news_tile_builder.dart';
-import '../services/news_service.dart';
 
 class NewsView extends StatelessWidget {
-  NewsView({super.key});
   List<NewsCategoryItem> category = [
     NewsCategoryItem(
       newsCategories:
@@ -43,11 +37,13 @@ class NewsView extends StatelessWidget {
     ),
   ];
 
+  NewsView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
@@ -68,19 +64,19 @@ class NewsView extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: CustomScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           slivers: [
             SliverToBoxAdapter(
               child: CategoriesListView(category: category),
             ),
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: SizedBox(
                 height: 32,
               ),
             ),
-            NewsTileBuilder(
+            const NewsTileBuilder(
               category: 'general',
             )
           ],

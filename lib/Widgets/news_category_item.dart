@@ -28,7 +28,7 @@ class NewsCategoryItem extends StatelessWidget {
           ),
           Text(
             newsCategories.text,
-            style: TextStyle(fontSize: 30, color: Colors.white),
+            style: const TextStyle(fontSize: 30, color: Colors.white),
           ),
         ],
       ),

@@ -19,7 +19,7 @@ class CategoriesListView extends StatelessWidget {
           return category[index];
         },
         itemCount: category.length,
-        separatorBuilder: (context, index) => SizedBox(
+        separatorBuilder: (context, index) => const SizedBox(
           width: 12,
         ),
         scrollDirection: Axis.horizontal,
