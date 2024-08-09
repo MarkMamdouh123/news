@@ -48,7 +48,7 @@ class NewsView extends StatelessWidget {
           children: [
             Text(
               'News',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             SizedBox(
               width: 10,

@@ -16,30 +16,26 @@ class NewsItem extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => WebViewPage(url: articleModel.url),
-              ),
-            );
-          },
-          child: articleModel.image != null
-              ? Container(
-                  height: 234,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: CachedNetworkImageProvider(articleModel.image!),
-                    ),
-                  ),
-                )
-              : const Text(
-                  "No Image",
-                  style: TextStyle(fontSize: 23),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WebViewPage(url: articleModel.url),
                 ),
-        ),
+              );
+            },
+            child: articleModel.image != null
+                ? Container(
+                    height: 234,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: CachedNetworkImageProvider(articleModel.image!),
+                      ),
+                    ),
+                  )
+                : const Image(image: AssetImage('assets/images/temp.webp'))),
         const SizedBox(
           height: 23,
         ),
