@@ -1,2 +1,2 @@
 # News ShowCase
-!(GIFS/news.gif)
+![](GIFS/news.gif)
