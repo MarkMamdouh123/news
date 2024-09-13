@@ -1,3 +1,3 @@
 # News ShowCase
 
-![NewsShowCase](GIFS/news.gif)
+![News](GIFS/news.gif)
